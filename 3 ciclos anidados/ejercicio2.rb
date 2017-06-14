@@ -24,16 +24,20 @@ Generar el código para imprimir la siguiente tabla:
  </table>
 =end
 
-a = 3
-b = ''
-tr = ''
-tbody = ''
-num = 0
 
-a.times do
-  num += 1
-  tbody = "\t<tbody> \n#{tr} \t</tbody> \n"
-  tr = "\t\t<tr> \n#{b} \t\t</tr> \n"
-  b += "\t\t\t<td> #{num} </td> \n"
+def table(nrows, ncols)
+n = 0
+puts "<table>\n\t<tbody>"
+  nrows.times do |i|
+    puts "\t\t<tr>\n"
+    ncols.times do |j|
+      n += 1
+      puts "\t\t\t<td> #{n} </td>"
+    end
+   puts "\t\t</tr>"
+  end
+puts "\t</tbody>\n</table>"
 end
-puts "<table> \n#{tbody}</table>"
+
+
+table(3, 4)
